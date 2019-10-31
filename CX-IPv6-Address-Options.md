@@ -73,8 +73,11 @@ interface 1/1/5
 
 ##### Configuration Example
 
-![TestNetwork](diagrams/vlan1001.png)
+###### Config Capture
 
+![VLAN1001](diagrams/vlan1001.png)
+
+###### Native CLI
 ```
 interface vlan1001
     description SLAAC
@@ -91,6 +94,10 @@ interface vlan1001
 2. However, in this case the default RA behaviour is negated by unsuppressing the RFC8106 options with `no ipv6 nd suppress-ra dnssl rdnss`. This command can be entered separate commands or as a single entry with both dnssl and rdnss keywords. It will appear in the running-configuration as separate commands.
 3. If the AOS-CX device's Layer 3 interface is configured to transmit RAs, simply configuring an IPv6 address with a /64 mask is sufficient to enable the gateway to commence sending RAs onto the local segment with the prefix in question and the A flag set to on.
 4. The RFC8106 RDNSS and DNSSL options are configured on the Layer 3 interface with `ipv6 nd ra dns server` and `ipv6 nd ra dns search-list`
+
+#####  Router Advertisement Packet Capture
+
+![SLAAC-RA](diagrams/vlan1001-slaac-ra.jpg)
 
 ##### AOS-CX CLI Show Command Example
 
@@ -157,6 +164,12 @@ resolver #1
 
 ##### Configuration Example
 
+###### Config Capture
+
+![VLAN1002](diagrams/vlan1002.png)
+
+###### Native CLI
+
 ```
 interface vlan1002
     description DHCPv6 Stateful
@@ -168,6 +181,10 @@ interface vlan1002
     exit
 dhcpv6-relay
 ```
+
+#####  Router Advertisement Packet Capture
+
+![DHCPv6-Stateful](diagrams/vlan102-dhcpv6-stateful-ra.jpg)
 
 ##### AOS-CX CLI Show Command Examples
 
@@ -200,7 +217,7 @@ Interface vlan1002 is up
 ```
 
 ##### macOS CLI captures
-
+```
 ➜  ~ ifconfig en0
 en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
 	options=400<CHANNEL_IO>
@@ -220,6 +237,7 @@ resolver #1
   if_index : 5 (en0)
   flags    : Request AAAA records
   reach    : 0x00000002 (Reachable)
+  ```
 
 #### 3. DHCP Stateless
 
@@ -229,6 +247,12 @@ resolver #1
 * The client will use the /64 in the RA to generate its own addresses.
 
 ##### Configuration Example
+
+###### Config Capture
+
+![VLAN1003](diagrams/vlan1003.png)
+
+###### Native CLI
 
 ```
 interface vlan1003
@@ -240,6 +264,10 @@ interface vlan1003
     exit
 dhcpv6-relay
 ```
+
+#####  Router Advertisement Packet Capture
+
+![DHCPv6-Stateless](diagrams/vlan1003-dhcpv6-stateless-ra.jpg)
 
 ##### AOS-CX CLI Show Command Examples
 
@@ -302,6 +330,12 @@ resolver #1
 
 ##### Configuration Example
 
+###### Config Capture
+
+![VLAN1004](diagrams/vlan1004.png)
+
+###### Native CLI
+
 ```
 interface vlan1004
     description IPv6 All On
@@ -312,6 +346,10 @@ interface vlan1004
     exit 
 dhcpv6-relay
 ```
+
+#####  Router Advertisement Packet Capture
+
+![SLAAC-and-DHCP](diagrams/vlan1004-all-on.jpg)
 
 ##### AOS-CX CLI Show Command Examples
 
