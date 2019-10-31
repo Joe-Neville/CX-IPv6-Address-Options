@@ -97,7 +97,7 @@ interface vlan1001
 
 #####  Router Advertisement Packet Capture
 
-![SLAAC-RA](diagrams/vlan1001-slaac-ra.jpg)
+![SLAAC-RA](diagrams/vlan1001-ra.png)
 
 ##### AOS-CX CLI Show Command Example
 
@@ -184,7 +184,7 @@ dhcpv6-relay
 
 #####  Router Advertisement Packet Capture
 
-![DHCPv6-Stateful](diagrams/vlan102-dhcpv6-stateful-ra.jpg)
+![DHCPv6-Stateful](diagrams/vlan1002-ra.png)
 
 ##### AOS-CX CLI Show Command Examples
 
@@ -267,7 +267,7 @@ dhcpv6-relay
 
 #####  Router Advertisement Packet Capture
 
-![DHCPv6-Stateless](diagrams/vlan1003-dhcpv6-stateless-ra.jpg)
+![DHCPv6-Stateless](diagrams/vlan1003-ra.png)
 
 ##### AOS-CX CLI Show Command Examples
 
@@ -349,7 +349,7 @@ dhcpv6-relay
 
 #####  Router Advertisement Packet Capture
 
-![SLAAC-and-DHCP](diagrams/vlan1004-all-on.jpg)
+![SLAAC-and-DHCP](diagrams/vlan1004-ra.png)
 
 ##### AOS-CX CLI Show Command Examples
 
