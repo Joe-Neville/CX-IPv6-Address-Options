@@ -160,7 +160,7 @@ resolver #1
 * However, it is also valid for the client to transmit a DHCPv6 SOLICIT message prior to receiving an RA, thus defaulting to DHCPv6 Stateful regardless of gateway RA configuration.
 * If the DHCPv6 server resides on a remote subnet, the AOS-CX gateway can be configured to forward DHCPv6 messages from the client using the `ipv6 helper-address` and `dhcpv6-relay` command.
 * As part of the test environment the Windows 2019 DHCPv6 server will return a client address, DNS server and DNS search-list.
-* DHCPv6 and SLAAC are not mutually exclusive, if a client OS receives an RA with a /64 prefix and the A flag on, it will generate its own addresses and also attempt to receive an address via DHCPv6. This can cause needless address profileration on a network, placing strain on the gateway's hardware resources. To avoid such a scenario, configure the gateway to set the M flag 'on' but the prefix A flag off with `ipv6 nd prefix default valid infinite preferred infinite no-autoconfig`.
+* DHCPv6 and SLAAC are not mutually exclusive, if a client OS receives an RA with a /64 prefix and the A flag on, it will generate its own addresses and also attempt to receive an address via DHCPv6. This can cause needless address profileration on a network, placing strain on the gateway's hardware resources. To avoid such a scenario, configure the gateway to set the M flag on but the prefix A flag off with `ipv6 nd prefix default valid infinite preferred infinite no-autoconfig`.
 
 ##### Configuration Example
 
@@ -241,9 +241,9 @@ resolver #1
 
 #### 3. DHCP Stateless
 
-* The gateway indicates to connected clients to use DHCPv6 Stateless by setting the Other (O) flag to 'on' and including a /64 prefix for address creation.
-* If the client OS transmits a DHCPv6 SOLICIT messsage by default, this will alter to a DHCPv6 INFORMATION-REQUEST messsage once the client receives an RA with the O flag 'on'.
-* The DHCPv6 server is configured to return the DNS server and DNS search-list only.
+* The gateway indicates to connected clients to use DHCPv6 Stateless by setting the Other (O) flag to on and including a /64 prefix for address creation.
+* If the client OS transmits a DHCPv6 SOLICIT messsage by default, this will alter to a DHCPv6 INFORMATION-REQUEST messsage once the client receives an RA with the O flag on.
+* The DHCPv6 server, in this case, is configured to return the DNS server and DNS search-list only.
 * The client will use the /64 in the RA to generate its own addresses.
 
 ##### Configuration Example
@@ -324,9 +324,9 @@ resolver #1
 ```
 #### 4. SLAAC and DHCPv6
 
-* A common misconfiguration when enabling DHCPv6 is to leave the gateway configured with its default RA settings, for AOS-CX this means a /64 prefix is included in the RA with the A flag set to 'on'.
+* A common misconfiguration when enabling DHCPv6 is to leave the gateway configured with its default RA settings, for AOS-CX this means a /64 prefix is included in the RA with the A flag set to on.
 * Clients will generate addresses via SLAAC and still solicit DHCPv6 servers for address assignment.
-* This undesirable but still workable scenario is included to detail the configuration that will create this setup.
+* This maybe undesirable in certain networks where clients do not need multiple methods to allocate an addres. However this is a still workable scenario and is included to detail the configuration that will create this setup.
 
 ##### Configuration Example
 
@@ -405,6 +405,3 @@ resolver #1
   flags    : Request AAAA records
   reach    : 0x00000002 (Reachable)
 ```
-
-
-
