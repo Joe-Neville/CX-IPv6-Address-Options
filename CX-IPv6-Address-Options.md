@@ -26,10 +26,10 @@ IPv6 addresses can be allocated to clients by a variety of methods:
 
 | VLAN | Prefix  |  Method | SSID  |
 |------|---------|---------|-------|
-| 1001 | 2001:db8:a:1001::/64 | SLAAC | v6net-SLAAC |
-| 1002 | 2001:db8:a:1002::/64 | DHCPv6 Stateful | v6net-DHCPv6-Stateful |
-| 1003 | 2001:db8:a:1003::/64 | DHCPv6 Stateless | v6net-DHCPv6-Stateless |
-| 1004 | 2001:db8:a:1004::/64 | SLAAC & DHCPv6 | v6net-All-On |
+| 1001 | `2001:db8:a:1001::/64` | SLAAC | v6net-SLAAC |
+| 1002 | `2001:db8:a:1002::/64` | DHCPv6 Stateful | v6net-DHCPv6-Stateful |
+| 1003 | `2001:db8:a:1003::/64` | DHCPv6 Stateless | v6net-DHCPv6-Stateless |
+| 1004 | `2001:db8:a:1004::/64` | SLAAC & DHCPv6 | v6net-All-On |
 
 
 ### Network Kit List
