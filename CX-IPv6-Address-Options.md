@@ -91,7 +91,7 @@ interface vlan1001
 ##### Notes
 
 1. AOS-CX suppresses RA on layer 3 interfaces by default. RAs are allowed using the interface subcommand `no ipv6 nd suppress-ra`.
-2. However, in this case the default RA behaviour is negated by allowing the RFC8106 options with `no ipv6 nd suppress-ra dnssl rdnss`. This command can be entered separate commands or as a single entry with both dnssl and rdnss keywords. It will appear in the running-configuration as separate commands.
+2. However, in this case the default RA behaviour is negated by allowing the RFC8106 options with `no ipv6 nd suppress-ra dnssl rdnss`. This command can be entered as separate commands or as a single entry with both dnssl and rdnss keywords. It will appear in the running-configuration as separate commands.
 3. If the AOS-CX device's Layer 3 interface is configured to transmit RAs, simply configuring an IPv6 address with a /64 mask is sufficient to enable the gateway to commence sending RAs onto the local segment with the prefix in question and the A flag set to on.
 4. The RFC8106 RDNSS and DNSSL options are configured on the Layer 3 interface with `ipv6 nd ra dns server` and `ipv6 nd ra dns search-list`
 
@@ -156,11 +156,11 @@ resolver #1
 
 #### 2. DHCPv6 Stateful
 
-* The gateway indicates to the connected client to obtain its IPv6 address by sending an RA with the Managed (M) flag set to 'on'.
+* The gateway indicates to the connected client to obtain its IPv6 address by sending an RA with the Managed (M) flag set to on.
 * However, it is also valid for the client to transmit a DHCPv6 SOLICIT message prior to receiving an RA, thus defaulting to DHCPv6 Stateful regardless of gateway RA configuration.
-* If the DHCPv6 server resides on a remote subnet, the AOS-CX gateway can be configured to forward DHCPv6 messages from the client using the `ipv6 helper-address` command.
+* If the DHCPv6 server resides on a remote subnet, the AOS-CX gateway can be configured to forward DHCPv6 messages from the client using the `ipv6 helper-address` and `dhcpv6-relay` command.
 * As part of the test environment the Windows 2019 DHCPv6 server will return a client address, DNS server and DNS search-list.
-* DHCPv6 and SLAAC are not mutually exclusive, if a client OS receives an RA with a /64 prefix and the A flag 'on', it will generate its own addresses and also attempt to receive an address via DHCPv6. This can cause needless address profileration on a network, placing strain on the gateway's hardware resources. To avoid such a scenario, configure the gateway to set the M flag 'on' but the prefix A flag 'off'.
+* DHCPv6 and SLAAC are not mutually exclusive, if a client OS receives an RA with a /64 prefix and the A flag on, it will generate its own addresses and also attempt to receive an address via DHCPv6. This can cause needless address profileration on a network, placing strain on the gateway's hardware resources. To avoid such a scenario, configure the gateway to set the M flag 'on' but the prefix A flag off with `ipv6 nd prefix default valid infinite preferred infinite no-autoconfig`.
 
 ##### Configuration Example
 
