@@ -1,4 +1,4 @@
-# Aruba AOS-CX IPv6 Address Allocation
+# Aruba AOS-CX IPv6 Address Allocation Config Examples
 
 ## Abstract
 This document explains the numerous methods of IPv6 address allocation available on the Aruba AOS-CX Network Operating System and details how to configure these different methods.
