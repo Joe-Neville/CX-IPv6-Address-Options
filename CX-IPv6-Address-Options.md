@@ -43,7 +43,7 @@ IPv6 addresses can be allocated to clients by a variety of methods:
 
 ##### Network diagram
 
-![TestNetwork](diagrams/cx-v6-address-net-1.jpg)
+![TestNetwork](diagrams/cx-v6-address-net-4.jpg)
 
 
 ### AOS-CX IPv6 Address Allocation Methods
