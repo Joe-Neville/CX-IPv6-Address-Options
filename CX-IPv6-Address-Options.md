@@ -228,6 +228,17 @@ en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
 	media: autoselect
 	status: active
 
+➜  ~ ipconfig getv6packet en0
+DHCPv6 REPLY (7) Transaction ID 0xf0e46a Length 121
+Options[5] = {
+  SERVERID (2) Length 14: DUID LLT HW 0 Time 1559252100 Addr 00:15:5d:30:14:00
+  CLIENTID (1) Length 14: DUID LLT HW 1 Time 596117769 Addr 8c:85:90:85:d9:cf
+  IA_NA (3) Length 40:  IA_NA IAID=1 T1=345600 T2=552960 Options[1] = {
+    IAADDR (5) Length 24:  IAADDR 2001:db8:a:1002:8df4:2659:859c:cc5a Preferred 691200 Valid=1036800
+  }  DNS_SERVERS (23) Length 16: 2001:db8:a:50::10
+  DOMAIN_LIST (24) Length 13: actium.home
+}
+
 ➜  ~ scutil --dns
 DNS configuration
 
@@ -312,6 +323,15 @@ en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
 	media: autoselect
 	status: active
 
+➜  ~ ipconfig getv6packet en0
+DHCPv6 REPLY (7) Transaction ID 0xf84c0e Length 77
+Options[4] = {
+  CLIENTID (1) Length 14: DUID LLT HW 1 Time 596117769 Addr 8c:85:90:85:d9:cf
+  DNS_SERVERS (23) Length 16: 2001:db8:a:50::10
+  DOMAIN_LIST (24) Length 13: actium.home
+  SERVERID (2) Length 14: DUID LLT HW 0 Time 1559252100 Addr 00:15:5d:30:14:00
+}
+
 ➜  ~ scutil --dns
 DNS configuration
 
@@ -394,6 +414,17 @@ en0: flags=8963<UP,BROADCAST,SMART,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1500
 	nd6 options=201<PERFORMNUD,DAD>
 	media: autoselect
 	status: active
+
+➜  ~ ipconfig getv6packet en0
+DHCPv6 REPLY (7) Transaction ID 0xcfee8a Length 121
+Options[5] = {
+  SERVERID (2) Length 14: DUID LLT HW 0 Time 1559252100 Addr 00:15:5d:30:14:00
+  CLIENTID (1) Length 14: DUID LLT HW 1 Time 596117769 Addr 8c:85:90:85:d9:cf
+  IA_NA (3) Length 40:  IA_NA IAID=1 T1=345600 T2=552960 Options[1] = {
+    IAADDR (5) Length 24:  IAADDR 2001:db8:a:1004:be8e:a86:94c4:4687 Preferred 691200 Valid=1036800
+  }  DNS_SERVERS (23) Length 16: 2001:db8:a:50::10
+  DOMAIN_LIST (24) Length 13: actium.home
+}
 
 ➜  ~ scutil --dns
 DNS configuration
